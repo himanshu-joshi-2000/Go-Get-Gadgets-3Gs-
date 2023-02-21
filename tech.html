@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
+    <title>3G'S</title>
+    <style>
+        body {
+            margin: auto;
+            width: 80%;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        #logo {
+            /* border: 2px solid; */
+            margin: auto;
+            display: flex;
+            color: blueviolet;
+            /* background-color: black; */
+            justify-content: center;
+            border-radius: 20px;
+        }
+
+        #logo img {
+            border-radius: 50%;
+            width: 100px;
+        }
+
+        #container {
+            border: 2px solid;
+            margin-top: 10px;
+            padding: 10px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        #container div {
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+            border-radius: 20px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav></nav>
+    <div id="logo">
+        <a href="./main.html"><img src="./3 G's.png" alt=""></a>
+        <h2>Welcome To Go Gets Getgets (3 G's)</h2>
+    </div>
+    <div id="container"></div>
+</body>
+<script>
+    let containerEle = document.getElementById("container");
+    const myApi = "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=4379576eed804003a8dce8579caa3b3f";
+
+    async function FetchedData() {
+        try {
+            let res = await fetch(myApi);
+            res = await res.json();
+            console.log(res.articles);
+            // FetchedData(res.articles)
+            DisplayData(res.articles)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    FetchedData()
+
+    function DisplayData(data) {
+        containerEle.innerHTML = ""
+        data.forEach(element => {
+            let card = document.createElement("div");
+
+            let titleEle = document.createElement("h2");
+            titleEle.innerText = element.title
+
+            let imageEle = document.createElement("img");
+            imageEle.src = element.urlToImage;
+
+            let authorName = document.createElement("h3");
+            authorName.innerText = element.author;
+
+            let descriptionEle = document.createElement("p");
+            descriptionEle.innerText = element.description;
+
+            card.append(imageEle, titleEle, authorName, descriptionEle);
+            containerEle.append(card)
+        });
+    }
+    // DisplayData()
+
+</script>
+
+</html>
+<!-- https://newsapi.org/v2/everything?q=tesla&from=2023-01-21&sortBy=publishedAt&apiKey=4379576eed804003a8dce8579caa3b3f -->
