@@ -6,12 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <!-- search tag with the help of w3 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <title>3 G'S</title>
     <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        /* .upper-nav {
+            color: white;
+        } */
+
         ul {
             list-style-type: none;
             margin: 0;
-            padding: 0;
+            /* padding: 0; */
             /* padding-left: 20px; */
             overflow: hidden;
             background-color: #a89f9f;
@@ -22,7 +39,7 @@
             /* height: 20px; */
         }
 
-        li a {
+        .upper-nav li a {
             display: block;
             color: white;
             text-align: center;
@@ -34,8 +51,36 @@
             background-color: #111;
         }
 
-        .active {
+        .active1 {
             background-color: black;
+            /* color: white; */
+        }
+
+        #follow {
+            background-color: skyblue;
+            color: white;
+            border: none;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        #like {
+            background-color: blue;
+            color: white;
+            border: none;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        #youtube {
+            background-color: orangered;
+            color: white;
+            border: none;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 5px;
         }
 
         /* Navigation Bar here..... */
@@ -44,20 +89,139 @@
 
         #logo {
             /* border: 2px solid; */
+            margin: auto;
             margin-top: 10px;
+            margin-bottom: 10PX;
+            width: 90%;
         }
 
         #logo img {
             width: 200px;
-            border-radius: 10px;
+            border-radius: 20px;
+        }
+
+        /* Logo of my site */
+
+        /* =========================================================================================================== */
+
+        .topnav {
+            /* border: 2px solid; */
+            margin: auto;
+            margin-bottom: 5px;
+            width: 90%;
+            overflow: hidden;
+            background-color: white;
+        }
+
+        .topnav a {
+            float: left;
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+            border-bottom: 3px solid transparent;
+        }
+
+        .topnav a:hover {
+            border-bottom: 10px solid red;
+        }
+
+        .topnav a.active {
+            border-bottom: 10px solid red;
+        }
+
+        /* second nav bar */
+
+        /* ==================================================================== */
+
+        .last-nav {
+            margin: auto;
+            /* width: 90%; */
+        }
+
+        .last-nav ul {
+            list-style-type: none;
+            margin: 0;
+            /* padding: 0; */
+            overflow: hidden;
+            background-color: red;
+        }
+
+        .last-nav li {
+            float: left;
+            border-right: 1px solid #bbb;
+        }
+
+        /* li:last-child { */
+        /* border-right: none; */
+        /* } */
+
+        .last-nav li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .last-nav li a:hover:not(.active) {
+            background-color: #111;
+        }
+
+        /* .last-nav .active {
+            background-color: #04AA6D;
+        } */
+
+        /* ========================================================================================== */
+
+        /* Container */
+
+        #container {
+            border: 2px solid;
+            margin: auto;
+            margin-top: 20px;
+            width: 90%;
+            display: flex;
+            gap: 10px;
+        }
+
+        #left-card {
+            border: 2px solid greenyellow;
+            margin: auto;
+            width: 10%;
+        }
+
+        #mid-card {
+            border: 2px solid red;
+            margin: auto;
+            width: 50%;
+        }
+
+        #mid-div-card {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+
+        /* #mid-card div img {
+            width: 150px;
+        } */
+
+        #right-card {
+            border: 2px solid orange;
+            margin: auto;
+            width: 30%;
         }
     </style>
 </head>
 
 <body>
-    <nav>
+    <nav class="upper-nav">
         <ul>
-            <li><a class="active" href="#home">NDTV</a></li>
+            <li><a class="active1" href="#home">Home</a></li>
             <li><a href="#news">Business</a></li>
             <li><a href="#contact">Hindi</a></li>
             <li><a href="#about">Movies</a></li>
@@ -68,18 +232,159 @@
             <li><a href="./tech.html">Tech</a></li>
             <li><a href="#about">Webstories</a></li>
             <li><a href="#contact">Education</a></li>
-            <li><a href="#about">Swasth</a></li>
-            <li><a href="#contact">Lifestyle</a></li>
-            <li><a href="#about">Shopping</a></li>
-            <li><a href="#contact">Auto</a></li>
+            <li><a href="./shopsite.html">Shopping</a></li>
+            <li><a href="./auto.html">Auto</a></li>
             <li><a href="#about">Apps</a></li>
             <li><a href="#contact">Art</a></li>
+            <li><a href=""><button id="follow">Follow @ 3 G's</button></a></li>
+            <li><a href=""><button id="like">Like</button></a></li>
+            <li><a href=""><button id="youtube">YouTube</button></a></li>
         </ul>
     </nav>
+    <!-- Logo Design -->
     <div id="logo">
         <img src="./3 G's.png" alt="">
     </div>
+    <!-- Second Nav Bar -->
+    <div class="topnav">
+        <a class="active" href="#home">Home</a>
+        <a href="#news">GUIDE</a>
+        <a href="">NEWS</a>
+        <a href="">REVIEWS</a>
+        <a href="">FEATURES</a>
+        <a href="">VIDEOS</a>
+        <a href="">PODCASTS</a>
+        <a href="">PRODUCT</a>
+        <a href="">FINDER</a>
+        <a href="">COMPARE</a>
+        <a href="">BRANDS</a>
+        <!-- <a href="">RECHARGE</a> -->
+        <a href="">MORE</a>
+        <form class="navbar-form navbar-left" action="/action_page.php">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search" name="search">
+                <div class="input-group-btn">
+                    <button class="btn btn-default" type="submit" style="background-color: red">
+                        <i class="glyphicon glyphicon-search" style="color: aliceblue;"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Another navbar -->
+    <nav class="last-nav">
+        <ul>
+            <li><a class="active" href="#home">MOBILES</a></li>
+            <li><a href="#news">TELECOME</a></li>
+            <li><a href="#contact">HOW TO</a></li>
+            <li><a href="#news">GAMING</a></li>
+            <li><a href="#contact">ENTERTAINMENT</a></li>
+            <li><a href="#news">CRYPTO</a></li>
+            <li><a href="#contact">AUDIO</a></li>
+            <li><a href="#news">TV</a></li>
+            <li><a href="#contact">PC/LAPTOPS</a></li>
+            <li><a href="#news">TABLETS</a></li>
+            <li><a href="#contact">SCIENCE</a></li>
+            <li><a href="#news">WEARABLES</a></li>
+            <li><a href="#contact">5G</a></li>
+            <li><a href="#news">SHOPPING BY CROMA</a></li>
+            <li><a href="#contact">HINDI</a></li>
+        </ul>
+    </nav>
+    <!-- below navbar container -->
+    <div id="container">
+        <div id="left-card">
+            <h3>TRENDING</h3>
+            <div>
+                <img src="https://th.bing.com/th/id/R.d97b22f0fc4934a8d621156164cdb7df?rik=BWrHMT5bmiy%2feA&riu=http%3a%2f%2flogos-download.com%2fwp-content%2fuploads%2f2016%2f06%2fZomato_logo.png&ehk=J%2bB3WT0JX5mDyxwShfOBomGWLyxm2GrIZtl91lnTDAg%3d&risl=&pid=ImgRaw&r=0"
+                    alt="Loading Failed">
+                <p>Zomato Everyday to Offer Home-Made Food Delivery at This Affordable Price
+                    Zomato Everyday to Offer Home-Made Food Delivery at This Affordable Price</p>
+            </div>
+            <div>
+                <img src="https://i.gadgets360cdn.com/large/oppo_enco_air3_review_small_1676984530811.jpg?downsize=130:*"
+                    alt="">
+                <p>Oppo Enco Air 3 True Wireless Earphones Review</p>
+            </div>
+            <div>
+                <img src="" alt="">
+                <p>NoiseFit Crew Smartwatch With Bluetooth Calling Launched in India</p>
+            </div>
+            <div>
+                <img src="" alt="">
+                <p>Croma Magical Summer Sale: Best Deals on Home Appliances</p>
+            </div>
+            <div>
+                <img src="" alt="">
+                <p>Infinix Smart 7 Launched in India At This Price</p>
+            </div>
+            <div>
+                <img src="" alt="">
+                <p>Samsung Galaxy S23 FE May Be Powered by This Chipset</p>
+            </div>
+            <div>
+                <img src="" alt="">
+                <p>Nothing Phone 1 Android 13 Update Now Rolling Out to All Users: Details</p>
+            </div>
+            <div>
+                <img src="" alt="">
+                <p>Most WhatsApp Users in India Receive Pesky Calls Through Online Chats: Survey</p>
+            </div>
+        </div>
 
+
+        <!-- ================================================================ -->
+        <div id="mid-card">
+            <h3>PRODUCT FINDER</h3>
+            <div id="mid-div-card">
+                <div>
+                    <img src="https://i.gadgets360cdn.com/large/ps5_dualsense_edge_india_pre_order_small_1669040811560.jpg?downsize=160:*"
+                        alt="">
+                    <p>DualSense Edge Review: Cutting-Edge Comes at a Cost
+                        DualSense Edge Review: Cutting-Edge Comes at a Cost</p>
+                </div>
+                <div>
+                    <img src="https://i.gadgets360cdn.com/large/320x240_4_1676956253204.png?downsize=160:*" alt="">
+                    <p>Croma Magical Summer Sale: Best Deals on Home Appliances</p>
+                </div>
+                <div>
+                    <img src="https://i.gadgets360cdn.com/large/hogwarts_legacy_gameplay_showcase_small_1668161158193.jpg?downsize=160:*"
+                        alt="">
+                    <p>Hogwarts Legacy Review: Under a Spell</p>
+                </div>
+                <div>
+                    <img src="https://i.gadgets360cdn.com/large/320x240_3_1676609707869.png?downsize=160:*" alt="">
+                    <p>Croma TGIF Sale: Best Offers on Mobiles, Electronics, Laptops</p>
+                </div>
+            </div>
+            <h3>LATEST VIDEOS >></h3>
+            <div id="mid-div-card">
+                <div>
+                    <img src="https://i.gadgets360cdn.com/large/ps5_dualsense_edge_india_pre_order_small_1669040811560.jpg?downsize=160:*"
+                        alt="">
+                    <p>DualSense Edge Review: Cutting-Edge Comes at a Cost
+                        DualSense Edge Review: Cutting-Edge Comes at a Cost</p>
+                </div>
+                <div>
+                    <img src="https://i.gadgets360cdn.com/large/320x240_4_1676956253204.png?downsize=160:*" alt="">
+                    <p>Croma Magical Summer Sale: Best Deals on Home Appliances</p>
+                </div>
+                <div>
+                    <img src="https://i.gadgets360cdn.com/large/hogwarts_legacy_gameplay_showcase_small_1668161158193.jpg?downsize=160:*"
+                        alt="">
+                    <p>Hogwarts Legacy Review: Under a Spell</p>
+                </div>
+                <div>
+                    <img src="https://i.gadgets360cdn.com/large/320x240_3_1676609707869.png?downsize=160:*" alt="">
+                    <p>Croma TGIF Sale: Best Offers on Mobiles, Electronics, Laptops</p>
+                </div>
+            </div>
+        </div>
+        <!-- =============================================================== -->
+        <div id="right-card">
+            <h3>TRENDING GADGETS AND TOPICS </h3>
+        </div>
+    </div>
 
 </body>
 
