@@ -48,7 +48,7 @@
             margin-top: 10px;
             padding: 10px;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 10px;
         }
 
@@ -63,13 +63,13 @@
 <body>
     <div id="logo">
         <a href="./main.html"><img src="./3 G's.png" alt=""></a>
-        <h2>Welcome To 3 G's Tech News</h2>
+        <h2>Welcome To 3 G's Auto News</h2>
     </div>
     <div id="container"></div>
 </body>
 <script>
     let containerEle = document.getElementById("container");
-    const myApi = "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=4379576eed804003a8dce8579caa3b3f";
+    const myApi = "https://newsapi.org/v2/everything?q=vehicle&from=2023-01-23&sortBy=publishedAt&apiKey=4379576eed804003a8dce8579caa3b3f";
 
     async function FetchedData() {
         try {
@@ -111,3 +111,6 @@
 
 </html>
 <!-- https://newsapi.org/v2/everything?q=tesla&from=2023-01-21&sortBy=publishedAt&apiKey=4379576eed804003a8dce8579caa3b3f -->
+
+
+<!-- https://newsapi.org/v2/everything?q=vehicle&from=2023-01-23&sortBy=publishedAt&apiKey=4379576eed804003a8dce8579caa3b3f -->
