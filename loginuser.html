@@ -123,6 +123,7 @@
             /* border: 2px solid; */
             width: 90%;
             margin: auto;
+            margin-top: 20px;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 10px;
@@ -135,6 +136,21 @@
 
         #container div img {
             width: 100%;
+        }
+
+        /* =================================================================== */
+        #cart-btn {
+            border: none;
+            border-radius: 20px;
+            background-color: #76ff03;
+            color: black;
+        }
+
+        #logou-btn {
+            border: none;
+            border-radius: 20px;
+            background-color: #d50000;
+            color: white;
         }
 
 
@@ -171,7 +187,7 @@
     </nav>
     <!-- Second Nav Bar =========================================================== -->
     <div class="topnav">
-        <a class="active" href="./main.html">HOME</a>
+        <a class="active" href="./index.html">HOME</a>
         <a href="#news">MOBILE PHONE</a>
         <a href="./electronic.html">ELECTRONICS</a>
         <a href="">LIFESTYLE</a>
@@ -181,15 +197,17 @@
         <a href="">MORE</a>
         <form class="navbar-form navbar-left" action="/action_page.php">
             <div class="input-group">
-                <input id="input-ele" type="text" class="form-control" placeholder="Search" name="search">
+                <input type="text" id="search" class="form-control" placeholder="Search" name="search">
                 <div class="input-group-btn">
-                    <button class="btn btn-default" id="search-btn" type="submit" style="background-color: red">
+                    <button class="btn btn-default" type="submit" style="background-color: red">
                         <i class="glyphicon glyphicon-search" style="color: aliceblue;"></i>
                     </button>
                 </div>
             </div>
         </form>
-        <a href="./signin.html"><button id="user-login">Login</button></a>
+        <a href="#">Hello User...</a>
+        <a href="./cart.html"><button id="cart-btn">YOUR CART</button></a>
+        <a href="./shopsite.html"><button id="logou-btn">LOGOUT</button></a>
     </div>
     <div id="container"></div>
     <footer>
@@ -241,10 +259,9 @@
         }
     }
     FetchData()
-
     document.querySelector("form").addEventListener("submit", (e) => {
         e.preventDefault();
-        let inputEle = document.getElementById("input-ele").value;
+        let inputEle = document.getElementById("search").value;
         let filteredData = [];
         for (let i = 0; i < alldata.length; i++) {
             if (alldata[i].category.toLowerCase().includes(inputEle.toLowerCase())) {
@@ -253,6 +270,7 @@
         }
         DisplayData(filteredData);
     })
+
     // Step - 3
     // let filterby = document.getElementById("filter")
     // filterby.addEventListener("change", () => {
@@ -297,7 +315,21 @@
             let Detail = document.createElement("p");
             Detail.innerText = product.details;
 
-            Card.append(Image, Brand, Price, Detail, Category);
+            let AddtoCart = document.createElement("button");
+            AddtoCart.innerText = "Add To Cart"
+            AddtoCart.addEventListener("click", () => {
+                if (checkDuplicate(product)) {
+                    alert("Product Already in Cart")
+                }
+                else {
+                    Cart.push({ ...product, quantaty: 1 });
+                    localStorage.setItem("cart", JSON.stringify(Cart))
+                    alert("Product Added To Cart")
+                }
+
+            })
+
+            Card.append(Image, Brand, Price, Detail, Category, AddtoCart);
             container.append(Card)
         });
     }

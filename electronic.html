@@ -171,9 +171,9 @@
     </nav>
     <!-- Second Nav Bar =========================================================== -->
     <div class="topnav">
-        <a class="active" href="./main.html">HOME</a>
+        <a class="active" href="./shopsite.html">HOME</a>
         <a href="#news">MOBILE PHONE</a>
-        <a href="./electronic.html">ELECTRONICS</a>
+        <a href="">ELECTRONICS</a>
         <a href="">LIFESTYLE</a>
         <a href="">BEAUTY</a>
         <a href="">HOME & KITCHEN</a>
@@ -181,9 +181,9 @@
         <a href="">MORE</a>
         <form class="navbar-form navbar-left" action="/action_page.php">
             <div class="input-group">
-                <input id="input-ele" type="text" class="form-control" placeholder="Search" name="search">
+                <input type="text" class="form-control" placeholder="Search" name="search">
                 <div class="input-group-btn">
-                    <button class="btn btn-default" id="search-btn" type="submit" style="background-color: red">
+                    <button class="btn btn-default" type="submit" style="background-color: red">
                         <i class="glyphicon glyphicon-search" style="color: aliceblue;"></i>
                     </button>
                 </div>
@@ -228,13 +228,11 @@
     </footer>
 </body>
 <script>
-    let alldata = []
     async function FetchData() {
         try {
             let res = await fetch("https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-tech-products");
             res = await res.json();
             console.log(res);
-            alldata = [...res.data]
             DisplayData(res.data)
         } catch (err) {
             console.log("error", err);
@@ -242,17 +240,6 @@
     }
     FetchData()
 
-    document.querySelector("form").addEventListener("submit", (e) => {
-        e.preventDefault();
-        let inputEle = document.getElementById("input-ele").value;
-        let filteredData = [];
-        for (let i = 0; i < alldata.length; i++) {
-            if (alldata[i].category.toLowerCase().includes(inputEle.toLowerCase())) {
-                filteredData.push(alldata[i]);
-            }
-        }
-        DisplayData(filteredData);
-    })
     // Step - 3
     // let filterby = document.getElementById("filter")
     // filterby.addEventListener("change", () => {
@@ -297,7 +284,21 @@
             let Detail = document.createElement("p");
             Detail.innerText = product.details;
 
-            Card.append(Image, Brand, Price, Detail, Category);
+            let AddtoCart = document.createElement("button");
+            AddtoCart.innerText = "Add To Cart"
+            AddtoCart.addEventListener("click", () => {
+                if (checkDuplicate(product)) {
+                    alert("Product Already in Cart")
+                }
+                else {
+                    Cart.push({ ...product, quantaty: 1 });
+                    localStorage.setItem("cart", JSON.stringify(Cart))
+                    alert("Product Added To Cart")
+                }
+
+            })
+
+            Card.append(Image, Brand, Price, Detail, Category, AddtoCart);
             container.append(Card)
         });
     }

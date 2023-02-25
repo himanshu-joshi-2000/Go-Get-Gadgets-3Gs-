@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon"
+        href="./all_images/Pink and Black Pink Aesthetic Flower Shop Logo.png" />
+    <title>SignIn</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url("./iOS\ 12\ Wallpaper\ 1.jpg");
+        }
+
+        #container {
+            /* border: 2px solid; */
+            text-align: center;
+            display: grid;
+            margin: 30px;
+            grid-template-columns: repeat(2, 1fr);
+            height: 450px;
+            gap: 20px;
+        }
+
+        #container>div>center>img {
+            width: 150px;
+
+        }
+
+        #container>div>center>img>h2 {
+            border: 2px solid;
+        }
+
+        #container>div:nth-child(1) {
+            background-color: aliceblue;
+            opacity: 0.8;
+            border-radius: 20px;
+        }
+
+        #container>div:nth-child(2) {
+            background-color: aliceblue;
+            padding: 20px;
+            border-radius: 20px;
+        }
+
+        /* Upper Images */
+        #upper_images {
+            background-color: aliceblue;
+            height: 40px;
+            border: 1px solid grey;
+            display: flex;
+            justify-content: center;
+            justify-content: space-around;
+        }
+
+        #upper_images>div {
+            /* border: 1px solid grey; */
+        }
+
+        #upper_images>div>img {
+            height: 40px;
+        }
+
+        @media all and (min-width:450px) and (max-width:750px) {
+            #main_container {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div id="container">
+            <div>
+                <center><img src="./all_images/Pink and Black Pink Aesthetic Flower Shop Logo.png" alt=""></center>
+                <h2>Create an account for faster checkout and order tracking.</h2>
+            </div>
+            <div>
+                <main>
+                    <h2>SIGNUP</h2>
+                    <form role="form" onsubmit="signUp(event);" autocomplete="off">
+                        <div class="form-group">
+                            <input type="text" name="fname" id="fname" placeholder="First Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="lname" id="lname" placeholder="Last Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" id="email" placeholder="Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="pwd" id="pwd" placeholder="Password" required>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit">Sign Up</button>
+                        </div>
+                    </form>
+                    <p>Already a member? <a href="/signin.html">Sign In</a></p>
+                </main>
+            </div>
+        </div>
+
+        <div id="upper_images">
+            <div>
+                <img src="https://images.contentstack.io/v3/assets/blt95e0138311135214/blt13b0f02cd71877df/5f08974a8b0e59084c9f7570/hd-logo-v3.svg?height=32&width=78"
+                    alt="">
+            </div>
+            <div>
+                <img src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blt26149ee749ecd0f3/62b5c27fa7c4490fd2ef03ef/magnificent-preserved-roses-silo-156623-260x284.jpeg?quality=65&auto=webp&optimize={medium}"
+                    alt="">
+            </div>
+            <div>
+                <img src="https://images.contentstack.io/v3/assets/bltdd99f24e8a94d536/blt867d5477b7adc192/627be2023debbf3afdd2ea1e/get-well-flowers-146761-silo-260x284.jpg?quality=65&auto=webp&optimize={medium}"
+                    alt="">
+            </div>
+            <div>
+                <img src="https://images.contentstack.io/v3/assets/blt95e0138311135214/bltac303abaae751c40/5f08974af394777f87099a07/18b-logo-v2.svg?height=32&width=78"
+                    alt="">
+            </div>
+            <div>
+                <img src="https://images.contentstack.io/v3/assets/blt95e0138311135214/blt71adcb0696952e83/5f08974baa5d1801639286b4/sch-logo-v2.svg?height=32&width=78"
+                    alt="">
+            </div>
+            <div>
+                <img src="https://images.contentstack.io/v3/assets/blt95e0138311135214/bltef2e14ec247ab827/5f08974a2cd8e87f92bdd257/fb-logo-v2.svg?height=32&width=78"
+                    alt="">
+            </div>
+            <div>
+                <img src="https://images.contentstack.io/v3/assets/blt95e0138311135214/blte1e2eb25cfd09fb6/5f08974a91afb901b86d5251/cco-logo-v2.svg?height=32&width=78"
+                    alt="">
+            </div>
+            <div>
+                <img src="https://images.contentstack.io/v3/assets/blt95e0138311135214/bltf9903ccf2408c217/5f0897552cd8e87f92bdd25b/tpf-logo-v2.svg?height=32&width=78"
+                    alt="">
+            </div>
+            <div>
+                <img src="https://images.contentstack.io/v3/assets/blt95e0138311135214/blt7ef824d3f9f5074d/5f0897558b0e59084c9f7574/wlf-logo-v2.svg?height=32&width=78"
+                    alt="">
+            </div>
+            <div>
+                <img src="https://images.contentstack.io/v3/assets/blt95e0138311135214/blta2ba2ac7606f6c15/5f08974bceebbf7e87c30215/sy-logo-v2.svg?height=32&width=78"
+                    alt="">
+            </div>
+            <div>
+                <img src="https://images.contentstack.io/v3/assets/blt0281495b20b504a0/blta4f709f645453ff0/61b4eeeea000c90ecc6e15bd/VC_Logo_w_tag.svg?height=32&width=78"
+                    alt="">
+            </div>
+        </div>
+
+        <script type="text/javascript" src="./script.js"></script>
+</body>
+
+</html>

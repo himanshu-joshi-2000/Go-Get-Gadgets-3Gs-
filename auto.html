@@ -64,20 +64,20 @@
 
 <body>
     <div id="logo">
-        <a href="./main.html"><img src="./3 G's.png" alt=""></a>
+        <a href="./index.html"><img src="./3 G's.png" alt=""></a>
         <h2>Welcome To 3 G's Auto News</h2>
     </div>
     <div id="container"></div>
 </body>
 <script>
     let containerEle = document.getElementById("container");
-    const myApi = "https://newsapi.org/v2/everything?q=vehicle&from=2023-01-23&sortBy=publishedAt&apiKey=4379576eed804003a8dce8579caa3b3f";
+    const myApi = "https://newsapi.org/v2/everything?q=tesla&from=2023-01-25&sortBy=publishedAt&apiKey=4379576eed804003a8dce8579caa3b3f";
 
     async function FetchedData() {
         try {
             let res = await fetch(myApi);
             res = await res.json();
-            console.log(res.articles);
+            console.log(res);
             // FetchedData(res.articles)
             DisplayData(res.articles)
         } catch (error) {

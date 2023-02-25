@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <title>Cart</title>
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        img {
+            width: 40%;
+        }
+
+        /* ====================================== */
+        ul {
+            list-style-type: none;
+            margin: 0;
+            /* padding: 0; */
+            /* padding-left: 20px; */
+            overflow: hidden;
+            background-color: #263238;
+        }
+
+        li {
+            float: left;
+            /* height: 20px; */
+        }
+
+        .upper-nav li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #111;
+        }
+
+        .active1 {
+            background-color: black;
+            /* color: white; */
+        }
+
+        #follow {
+            background-color: skyblue;
+            color: white;
+            border: none;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        #like {
+            background-color: blue;
+            color: white;
+            border: none;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        #youtube {
+            background-color: orangered;
+            color: white;
+            border: none;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        /* Navigation Bar here..... */
+
+        #cart-container {
+            /* border: 2px solid; */
+            width: 90%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            text-align: center;
+        }
+
+        #cart-container div {
+            border-radius: 20px;
+            margin-top: 20px;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+            padding: 20px;
+        }
+
+        #total-check {
+            background-color: #004d40;
+            border: 2px solid;
+            margin: auto;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            color: white;
+        }
+
+        /* a {
+            border: 2px solid;
+            height: 100%;
+        } */
+        #buy-it {
+            margin: auto;
+            /* border: 2px solid; */
+            justify-content: center;
+            text-align: center;
+        }
+
+        #buy-it button {
+            width: 200px;
+            border: none;
+            border-radius: 20px;
+            background-color: #01579b;
+            color: white;
+            font-weight: bold;
+            font-size: 25px;
+        }
+
+        #buy-it button:hover {
+            width: 200px;
+            border: none;
+            border-radius: 20px;
+            background-color: red;
+            color: white;
+            font-weight: bold;
+            font-size: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="upper-nav">
+        <ul>
+            <li><a class="active1" href="./loginuser.html">Home</a></li>
+            <li><a href="#news">Business</a></li>
+            <li><a href="#contact">Hindi</a></li>
+            <li><a href="#about">Movies</a></li>
+            <li><a href="#contact">Cricket</a></li>
+            <li><a href="#about">Health</a></li>
+            <li><a href="#contact">Food</a></li>
+            <li><a href="#about">Crypto</a></li>
+            <li><a href="./tech.html">Tech</a></li>
+            <li><a href="#about">Webstories</a></li>
+            <li><a href="#contact">Education</a></li>
+            <li><a href="./shopsite.html">Shopping</a></li>
+            <li><a href="./auto.html">Auto</a></li>
+            <li><a href="#about">Apps</a></li>
+            <li><a href="#contact">Art</a></li>
+            <li><a href=""><button id="follow">Follow @ 3 G's</button></a></li>
+            <li><a href=""><button id="like">Like</button></a></li>
+            <li><a href=""><button id="youtube">YouTube</button></a></li>
+        </ul>
+    </nav>
+    <div id="total-check">
+        <h1 id="total">Your Total cart Price is => <span id="cart-total">0</span></h1>
+    </div>
+    <div id="buy-it">
+        <a href="./finalpage.html"><button>BUY</button></a>
+    </div>
+    <div id="cart-container"></div>
+</body>
+<script>
+    // Write all necessery JS here
+    let container = document.getElementById("cart-container");
+    let Cart = JSON.parse(localStorage.getItem("cart"));
+
+    function DisplayData() {
+        // console.log("display", data)
+        container.innerHTML = ""
+        Cart.forEach(product => {
+
+            let Card = document.createElement("div");
+
+            let Image = document.createElement("img");
+            Image.setAttribute("src", product.img);
+
+            let Brand = document.createElement("h2");
+            Brand.innerText = product.brand;
+
+            let Category = document.createElement("p");
+            Category.innerText = product.category;
+
+            let Price = document.createElement("h3");
+            Price.innerText = product.price;
+
+            let Detail = document.createElement("p");
+            Detail.innerText = product.details;
+
+            let Quantity = document.createElement("p");
+            Quantity.innerText = product.quantaty;
+
+
+            let Increase = document.createElement("button");
+            Increase.innerText = "+"
+            Increase.addEventListener("click", () => {
+                product = product.quantaty++
+                localStorage.setItem("cart", JSON.stringify(Cart))
+                DisplayData()
+            })
+
+            let Remove = document.createElement("button");
+            Remove.innerText = "Remove"
+            Remove.addEventListener("click", () => {
+                Cart = Cart.filter((ele) => {
+                    return ele.id !== product.id
+                })
+                localStorage.setItem("cart", JSON.stringify(Cart))
+                DisplayData()
+            })
+
+            let Decrease = document.createElement("button");
+            Decrease.innerText = "-"
+            Decrease.addEventListener("click", () => {
+                if (product.quantaty > 1) {
+                    product = product.quantaty--;
+                    localStorage.setItem("cart", JSON.stringify(Cart))
+                    DisplayData()
+                }
+            })
+
+            let sum = 0;
+            for (let i = 0; i < Cart.length; i++) {
+                sum += Cart[i].price * Cart[i].quantaty;
+            }
+
+            document.getElementById("cart-total").innerText = sum;
+
+            Card.append(Image, Brand, Price, Detail, Category, Increase, Quantity, Decrease, Remove);
+            container.append(Card)
+        });
+    }
+
+    DisplayData()
+
+</script>
+
+</html>
